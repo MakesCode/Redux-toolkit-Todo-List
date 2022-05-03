@@ -6,7 +6,6 @@ import Item from './components/TodoListItem/Item'
 function TodoList() {
   const list = useSelector(ListState)
   const listLenght = list.length
-
   return (
     <div>
       <div>
