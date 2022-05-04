@@ -11,9 +11,7 @@ function TodoList() {
   const listLenght = list.length
 
   const handleFilter = (nameFilter) => {
-    if(nameFilter === "all") dispatch(filterList("all"))
-    if(nameFilter === "active") dispatch(filterList("active")) 
-    if(nameFilter === "completed") dispatch(filterList("completed"))
+    dispatch(filterList(nameFilter))
   }
   const todos = getVisibleTodo(filterName, list)
 
