@@ -8,7 +8,8 @@ const todoListReducer = createSlice({
       {id: 2, title: "Arroser les plantes", done: false},
       {id: 3, title: "Pecher du poisson", done: true}
     ],
-    textInput: ''
+    textInput: '',
+    filter: "all"
   },
   reducers: {
     addElement: (state, action) => { 
@@ -31,18 +32,23 @@ const todoListReducer = createSlice({
     },
     updateInput: (state, action) => {
       state.textInput = action.payload
+    },
+    filterList: (state, action) => {
+      state.filter = action.payload
     }
+
   }
 })
 
 // Action
 export const {
-  deleteElement, addElement, updateChecked, updateInput
+  deleteElement, addElement, updateChecked, updateInput, filterList
 } = todoListReducer.actions;
 
 //State
 export const ListState = (state) => state.todoList.list;
 export const TextInputState = (state) => state.todoList.textInput;
+export const filterState = (state) => state.todoList.filter;
 
 //Reducer
 export default todoListReducer.reducer;

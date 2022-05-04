@@ -1,23 +1,34 @@
-import { useSelector } from 'react-redux'
-import { ListState } from '../../redux/reducers/todoListe.slice'
+import { useSelector, useDispatch } from 'react-redux'
+import { filterList, filterState, ListState } from '../../redux/reducers/todoListe.slice'
+import { getVisibleTodo } from '../../utils/filterTodoList'
 import Form from './components/TodoListForm/Form'
 import Item from './components/TodoListItem/Item'
 
 function TodoList() {
+  const dispatch = useDispatch()
   const list = useSelector(ListState)
+  const filterName = useSelector(filterState)
   const listLenght = list.length
+
+  const handleFilter = (nameFilter) => {
+    if(nameFilter === "all") dispatch(filterList("all"))
+    if(nameFilter === "active") dispatch(filterList("active")) 
+    if(nameFilter === "completed") dispatch(filterList("completed"))
+  }
+  const todos = getVisibleTodo(filterName, list)
+
   return (
     <div>
       <div>
         <p>{listLenght} tasks</p>
-        <button>All</button>
-        <button>Active</button>
-        <button>Completed</button>
+        <button onClick={() => handleFilter("all")}>All</button>
+        <button onClick={() => handleFilter("active")}>Active</button>
+        <button onClick={() => handleFilter("completed")}>Completed</button>
       </div>
       <Form />
       <ul >
         {
-          list.map(element => (
+          todos.map(element => (
             <Item title={element.title} done={element.done} key={element.id} id={element.id}/>
           ))
         }
