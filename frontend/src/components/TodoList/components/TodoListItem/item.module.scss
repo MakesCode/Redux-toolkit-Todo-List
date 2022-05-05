@@ -1,0 +1,20 @@
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.2rem;
+  border-bottom: 1px solid black;
+  padding: 0.5rem 0;
+}
+.checkbox {
+  cursor: pointer;
+}
+.button {
+  background-color: rgba(255, 0, 0, 0.433);
+  border: none;
+  padding: 0.2rem;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(255, 0, 0, 0.641);
+  }
+}

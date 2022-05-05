@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { addElement, TextInputState, updateInput } from "../../../../redux/reducers/todoListe.slice"
-
+import todoForm from "./form.module.scss"
 function Form() {
   const dispatch = useDispatch()
   const textInput = useSelector(TextInputState)
@@ -13,12 +13,10 @@ function Form() {
     dispatch(updateInput(e.target.value))
   }
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Ajoute une tache" onChange={handleChange} value={textInput}/>
-        <input type="submit" value="Ajouter"/>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} className={todoForm.form}>
+      <input type="text" placeholder="Ajoute une tache" onChange={handleChange} value={textInput} className={todoForm.inputText} />
+      <input type="submit" value="Ajouter" className={todoForm.inputSubmit}/>
+    </form>
   )
 }
 export default Form
