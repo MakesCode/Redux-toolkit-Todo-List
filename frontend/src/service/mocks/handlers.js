@@ -6,14 +6,3 @@ export const handlers = [
     return res(ctx.json(tasks))
   })
 ]
-
-
-
-
-
-
-
-
-
-
-

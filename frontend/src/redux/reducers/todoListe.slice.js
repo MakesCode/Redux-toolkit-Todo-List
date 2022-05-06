@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { tasks } from "../../data/tasks";
+// import { tasks } from "../../data/tasks";
+import { fetchTask } from "../middlewares/tasksThunk";
 
 const todoListReducer = createSlice({
   name: 'todoList',
   initialState: {
-    list: tasks,
+    list: [],
     textInput: '',
     filter: "all"
   },
@@ -33,7 +34,12 @@ const todoListReducer = createSlice({
     filterList: (state, action) => {
       state.filter = action.payload
     }
-
+  },
+  extraReducers: {
+    [fetchTask.fulfilled]: (state, action) => {
+      console.log("extraReducer ok ", action.payload)
+      state.list = action.payload
+    }
   }
 })
 

@@ -1,4 +1,6 @@
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { fetchTask } from '../../redux/middlewares/tasksThunk'
 import { filterList, filterState, ListState } from '../../redux/reducers/todoListe.slice'
 import { getVisibleTodo } from '../../utils/filterTodoList'
 import Form from './components/TodoListForm/Form'
@@ -11,7 +13,12 @@ function TodoList() {
   const filterName = useSelector(filterState)
   const todos = getVisibleTodo(filterName, list)
   const todosLenght = todos.length
-  const handleFilter = (nameFilter) => {
+
+  useEffect( () => {
+    dispatch(fetchTask())
+  }, [dispatch])
+
+  function handleFilter(nameFilter) {
     dispatch(filterList(nameFilter))
   }
 
