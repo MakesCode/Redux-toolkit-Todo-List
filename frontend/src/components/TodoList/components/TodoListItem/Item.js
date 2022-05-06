@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux"
 import { deleteElement, updateChecked } from "../../../../redux/reducers/todoListe.slice"
 import item from "./item.module.scss"
-function Item({title, done, id}) {
+
+function Item({task}) {
   const dispatch = useDispatch()
 
   const handleChange = (e) => {
@@ -12,9 +13,9 @@ function Item({title, done, id}) {
   }
   return (
     <li className={item.task}>
-      <input type="checkbox" checked={done} onChange={() => handleChange(id)} name="checked" className={item.checkbox}/>
-      {title}
-      <button onClick={() => handleDelete(id)} className={item.button}>Supprimer</button>
+      <input type="checkbox" checked={task.done} onChange={() => handleChange(task.id)} name="checked" className={item.checkbox}/>
+      {task.title}
+      <button onClick={() => handleDelete(task.id)} className={item.button}>Supprimer</button>
     </li>
   )
 }

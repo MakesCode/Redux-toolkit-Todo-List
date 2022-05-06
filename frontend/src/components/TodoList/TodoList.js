@@ -29,7 +29,7 @@ function TodoList() {
       <ul className={todo.groupTask}>
         {
           todos.map(element => (
-            <Item title={element.title} done={element.done} key={element.id} id={element.id}/>
+            <Item task={element} key={element.id} />
           ))
         }
       </ul>

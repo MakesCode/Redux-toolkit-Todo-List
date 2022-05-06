@@ -1,13 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { tasks } from "../../data/tasks";
 
 const todoListReducer = createSlice({
   name: 'todoList',
   initialState: {
-    list: [
-      {id: 1, title: "promener le chien", done: false},
-      {id: 2, title: "Arroser les plantes", done: false},
-      {id: 3, title: "Pecher du poisson", done: true}
-    ],
+    list: tasks,
     textInput: '',
     filter: "all"
   },
