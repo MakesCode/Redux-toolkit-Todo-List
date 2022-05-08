@@ -1,0 +1,8 @@
+test.todo('fetch with useEffect and receives tasks')
+test.todo('have counter tasks')
+test.todo('have three button')
+test.todo('have input text')
+test.todo('have input submit')
+test.todo('click on the button All and recevies all tasks')
+test.todo('click on the Active button and receive the uncompleted tasks')
+test.todo('click on the completed button and receive the completed tasks')
