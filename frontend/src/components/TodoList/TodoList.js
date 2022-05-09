@@ -25,11 +25,23 @@ function TodoList() {
   return (
     <div className={todo.todoList}>
       <div className={todo.header}>
-        <p>{todosLenght} {todosLenght <= 1 ? "tache" : "taches"}</p>
+        <p data-testid="counter">{todosLenght} {todosLenght <= 1 ? "tache" : "taches"}</p>
         <div className={todo.group_button}>
-          <button onClick={() => handleFilter("all")} className={todo.button}>All</button>
-          <button onClick={() => handleFilter("active")} className={todo.button}>Active</button>
-          <button onClick={() => handleFilter("completed")} className={todo.button}>Completed</button>
+          <button 
+            onClick={() => handleFilter("all")} 
+            className={todo.button}
+            data-testid="buttonAll"
+          >All</button>
+          <button 
+          onClick={() => handleFilter("active")} 
+          className={todo.button}
+          data-testid="buttonActive"
+          >Active</button>
+          <button 
+          onClick={() => handleFilter("completed")} 
+          className={todo.button}
+          data-testid="buttonCompleted"
+          >Completed</button>
         </div>
       </div>
       <Form />

@@ -14,8 +14,20 @@ function Form() {
   }
   return (
     <form onSubmit={handleSubmit} className={todoForm.form}>
-      <input type="text" placeholder="Ajoute une tache" onChange={handleChange} value={textInput} className={todoForm.inputText} />
-      <input type="submit" value="Ajouter" className={todoForm.inputSubmit}/>
+      <input 
+        type="text" 
+        placeholder="Ajoute une tache" 
+        onChange={handleChange} 
+        value={textInput} 
+        className={todoForm.inputText} 
+        data-testid="inputAddTask"
+      />
+      <input 
+        type="submit" 
+        value="Ajouter" 
+        className={todoForm.inputSubmit}
+        data-testid="inputSubmit"
+      />
     </form>
   )
 }

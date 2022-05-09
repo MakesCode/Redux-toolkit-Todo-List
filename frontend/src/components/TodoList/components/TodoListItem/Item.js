@@ -12,7 +12,7 @@ function Item({task}) {
     dispatch(deleteElement(e))
   }
   return (
-    <li className={item.task}>
+    <li className={item.task} data-testid="item">
       <input type="checkbox" checked={task.done} onChange={() => handleChange(task.id)} name="checked" className={item.checkbox}/>
       {task.title}
       <button onClick={() => handleDelete(task.id)} className={item.button}>Supprimer</button>
