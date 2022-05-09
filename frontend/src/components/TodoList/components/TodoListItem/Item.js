@@ -13,9 +13,19 @@ function Item({task}) {
   }
   return (
     <li className={item.task} data-testid="item">
-      <input type="checkbox" checked={task.done} onChange={() => handleChange(task.id)} name="checked" className={item.checkbox}/>
+      <input 
+      type="checkbox" 
+      checked={task.done} 
+      onChange={() => handleChange(task.id)} 
+      name="checked" 
+      className={item.checkbox}
+      />
       {task.title}
-      <button onClick={() => handleDelete(task.id)} className={item.button}>Supprimer</button>
+      <button 
+      onClick={() => handleDelete(task.id)} 
+      className={item.button}
+      data-testid={`delete_${task.title}`}
+      >Supprimer</button>
     </li>
   )
 }

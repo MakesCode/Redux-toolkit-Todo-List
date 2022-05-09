@@ -37,7 +37,6 @@ const todoListReducer = createSlice({
   },
   extraReducers: {
     [fetchTask.fulfilled]: (state, action) => {
-      console.log("extraReducer ok ", action.payload)
       state.list = action.payload
     }
   }

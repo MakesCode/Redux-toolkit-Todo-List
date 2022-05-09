@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import store from '../../redux/store/store'
 import TodoList from "./TodoList"
 
- 
+
 describe('component:TodoList', () => {  
 
   test('fetch with useEffect and receives tasks', async () => { 
@@ -107,23 +107,35 @@ describe('component:TodoList', () => {
     expect(await findByText("Pecher du poisson")).toBeInTheDocument() 
   })
   
-/*   test('click input submit return new tasks', async () => {
+  test('click input submit return new tasks and return counter tasks +1', async () => {
     const { getByTestId, findByText } = render(
       <Provider store={store}>
         <TodoList />
       </Provider>
     )
+    const btn = getByTestId('buttonAll')
+    fireEvent.click(btn)
     const submit = getByTestId('inputSubmit')
     const input = getByTestId('inputAddTask')
 
     fireEvent.change(input, {
       target: {
         value: 'lol'
-      }})
+    }})
     expect(input.value).toBe("lol")
     fireEvent.click(submit)
     expect(await findByText("lol")).toBeInTheDocument() 
-  }) */
-  test.todo('click delete')
-  test.todo('click delete change counter tasks')
+    expect(await findByText('4 taches')).toBeInTheDocument()
+  })
+  test('click on the delete button and return the tasks without the clicked item and change counter', async () => {
+    const { getByTestId, findByText } = render(
+      <Provider store={store}>
+        <TodoList />
+      </Provider>
+    )
+    const btn =  getByTestId("delete_lol")
+    fireEvent.click(btn)   
+    expect(btn).not.toBeInTheDocument() 
+    expect(await findByText('3 taches')).toBeInTheDocument()
+  })
 })

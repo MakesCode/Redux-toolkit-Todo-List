@@ -21,7 +21,7 @@ function TodoList() {
   function handleFilter(nameFilter) {
     dispatch(filterList(nameFilter))
   }
-
+console.log(todos)
   return (
     <div className={todo.todoList}>
       <div className={todo.header}>
