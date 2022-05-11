@@ -1,4 +1,4 @@
-FROM node:alpine as builder
+FROM node
 
 WORKDIR /frontend
 
@@ -10,4 +10,4 @@ COPY . /frontend/
 
 EXPOSE 3000 
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
