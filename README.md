@@ -11,6 +11,7 @@ A simple to-do list
 - **MSW**
 - **Jest**
 - **React testing librairy**
+- **Cypress**
 - **Sass module**
 
 ## HOW TO USE THIS APP ?
@@ -21,9 +22,10 @@ A simple to-do list
 git clone <url of the repo>
 ```
 
-2. Install the dependencies for the front and the back
+2. Install the dependencies for the front
 
 ```bash
+cd frontend
 npm install
 ```
 
@@ -36,6 +38,7 @@ npm start
 ## Docker
 
 ```bash
+- cd frontend
 - docker-compose up -d --build
 - http://localhost:3000/
 ```
